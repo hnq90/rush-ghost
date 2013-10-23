@@ -164,7 +164,7 @@ ul.nav li a:hover {
 }
 #flash {
     display: inline-block;
-    text-shadow: #bbb 0 0 1px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0, 0, 0, 0.8) 0 30px 25px;
+    text-shadow: #F0EDED 0 0 20px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0, 0, 0, 0.8) 0 30px 25px;
     transition: margin-left 0.3s cubic-bezier(0, 1, 0, 1);
 }
 #box:hover #flash {
@@ -531,10 +531,9 @@ table.plain {
 }
 .blog-description {
     position: absolute;
-    bottom: 90px;
-    left: -70px;
-    left: 38%;
-    margin: 0;
+    bottom: 80px;
+    left: 0;
+    right: 0;
     letter-spacing: 0;
     font-weight: 300;
     font-size: 2.6rem;
@@ -679,28 +678,25 @@ table.plain {
 }
 .pagination {
     position: relative;
-    margin: 4rem auto;
-    max-width: 700px;
     width: 80%;
+    max-width: 700px;
+    margin: 4rem auto;
+    font-family:'Noto Sans', sans-serif;
+    font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
-    font-size: 1.3rem;
-    font-family:'Noto Sans', sans-serif;
 }
 .pagination a {
     color: #9EABB3;
 }
-.pagination a.button {
-    padding: 1.1rem;
-    border-radius: 20px;
-    background: #34495e;
+.older-posts, .newer-posts {
+    position: absolute;
+    display: inline-block;
+    padding: 0 15px;
+    background-color: #434a54;
     text-decoration: none;
-}
-.older-posts {
-    float: right;
-}
-.newer-posts {
-    float: left;
+    border-radius: 30px;
+    transition: border ease 0.3s;
 }
 .older-posts {
     right: 0;
@@ -713,7 +709,7 @@ table.plain {
     left: 0;
 }
 .older-posts:hover, .newer-posts:hover {
-    border-color: #9EABB3;
+    background-color: #586270;
 }
 .site-footer {
     position: relative;
@@ -830,6 +826,7 @@ table.plain {
     .blog-description {
         font-size: 1.7rem;
         line-height: 1.5em;
+        bottom: 90px;
     }
     .post {
         width: 72%;
@@ -862,19 +859,9 @@ table.plain {
         display: none;
     }
     .funny-avatar-circle {
-        position: absolute;
-        right: 0;
-        bottom: -75px;
-        left: 0;
-        margin: 0 auto;
-        width: 150px;
-        height: 150px;
-        border: 4px solid #f6f6f6;
-        border-radius: 4px;
-        border-radius: 50%;
-        /*max-height: 80px;*/
-        background: #666 50% 50% no-repeat;
-        background-size: cover;
+        bottom: -50px;
+        width: 100px;
+        height: 100px;
     }
     .inner .pagination {
         margin-right: 16px;
@@ -898,6 +885,7 @@ table.plain {
     }
     .blog-description {
         font-size: 1.5rem;
+        bottom: 60px;
     }
     h1, h2 {
         letter-spacing: -1px;
