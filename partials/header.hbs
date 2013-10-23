@@ -1,0 +1,15 @@
+<header id="site-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+    <div class="vertical">
+        {{! Animated Blog Header }}
+        <div id="box">
+              <p id="flashlight">
+                <span id="flash">Ghost</span>
+                <span id="light">Blog</span>
+              </p>
+        </div>
+        <div id="blog-logo" class="slogan">
+        <h2 class="blog-description transparent">{{@blog.description}}</h2>
+        {{#if @blog.logo}}<a href="{{@blog.url}}" class="funny-avatar-circle" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+        </div>
+    </div>
+</header>
