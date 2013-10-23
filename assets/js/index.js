@@ -1,7 +1,14 @@
 (function ($) {
     "use strict";
     $(document).ready(function () {
-        /* -- Cide Highlight -- */
+        /* -- Detect IE -- */
+        var browser = detect_browser();
+        if (browser.msie == true) {
+            var logo_text = $("#flash").text() + " " + $("#light").text();
+            $("#box").html(logo_text);
+        }
+        
+        /* -- Code Highlight -- */
         $("pre").addClass("prettyprint");
         
         /* -- Responsive Text and Video -- */
@@ -79,7 +86,7 @@
         });
         
         metaNodes.each(function (index) {
-            var matched_mood = $(this).text().match("happy|sad|okay"); 
+            var matched_mood = $(this).text().match("happy|sad|okay");
             emo_arr.push((matched_mood === null ? "okay" : matched_mood).toString());
         });
         
@@ -87,7 +94,6 @@
             if ($(window).width() >= 500) {
                 $(this).addClass(emo_arr[index]);
             }
-            //$(this).css("background","url('/assets/imgs/mood/"+emo_hash[emo_arr[index]]+".png')");
         });
         
         /* -- Feature Images per Post -- */
@@ -101,23 +107,19 @@
             });
         }
 
-        console.log(list_links);
         if (list_links.length > 0) {
             list_links.forEach(function (element, index, array) {
-                //console.log(list_links[index]);
                 $.get(list_links[index], function (data) {
-                    // var imgTagsRegex = /<img.+?src=\"(.*?)\".+?>/ig;
-                    // var matched = imgTagsRegex.exec(data);
-                    // if ( matched != null) {
-                    //      console.log(matched[0]);
-                    //      console.log(featured_parts[index]);
-                    // }
+                    var imgTagsRegex = /<img.+?src=\"(.*?)\".+?>/ig,
+                        matched = imgTagsRegex.exec(data),
+                        dom = featured_parts[index];
+                    if (matched !== null) {
+                        $(dom).html(matched[0]);
+                    }
                 });
             });
         }
     });
-    
-    //FUCK YOU, BITCH
     
     //Function check menu opened
     function MoveScrollIcon() {
@@ -153,5 +155,28 @@
     
     function menu_open() {
         return ($("#menu").css("right") === "0px");
+    }
+    
+    function detect_browser() {
+        var browser = {
+            chrome: false,
+            mozilla: false,
+            opera: false,
+            msie: false,
+            safari: false
+        };
+        var sBrowser, sUsrAg = navigator.userAgent;
+        if(sUsrAg.indexOf("Chrome") > -1) {
+            browser.chrome = true;
+        } else if (sUsrAg.indexOf("Safari") > -1) {
+            browser.safari = true;
+        } else if (sUsrAg.indexOf("Opera") > -1) {
+            browser.opera = true;
+        } else if (sUsrAg.indexOf("Firefox") > -1) {
+            browser.mozilla = true;
+        } else if (sUsrAg.indexOf("MSIE") > -1 || sUsrAg.indexOf("Trident") > -1) {
+            browser.msie = true;
+        }
+        return browser;
     }
 }(jQuery));
