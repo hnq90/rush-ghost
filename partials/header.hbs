@@ -2,14 +2,14 @@
     <div class="vertical">
         {{! Animated Blog Header }}
         <div id="box">
-              <p id="flashlight">
-                <span id="flash">Ghost</span>
+            <p id="flashlight">
+                <span id="flash">{{@blog.title}}</span>
                 <span id="light">Blog</span>
-              </p>
+            </p>
         </div>
         <div id="blog-logo" class="slogan">
-        <h2 class="blog-description transparent">{{@blog.description}}</h2>
-        {{#if @blog.logo}}<a href="{{@blog.url}}" class="funny-avatar-circle" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+            <h2 class="blog-description transparent">{{@blog.description}}</h2>
+            {{#if @blog.logo}}<a href="{{@blog.url}}" class="funny-avatar-circle" style="background-image: url({{@blog.logo}})"></a>{{/if}}
         </div>
     </div>
 </header>

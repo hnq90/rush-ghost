@@ -64,6 +64,7 @@
             emo_hash = {"happy": "vui", "sad": "chan", "okay": "bt"},
             emo_arr = [],
             articles_links = $(".post-title a"),
+            featured_parts = $(".featured"),
             list_links = [];
         
         metaNodes.each(function (index) {
@@ -99,13 +100,18 @@
                 //localStorage.setItem(articles_links[index].href, index);
             });
         }
-        
+
+        console.log(list_links);
         if (list_links.length > 0) {
             list_links.forEach(function (element, index, array) {
                 //console.log(list_links[index]);
                 $.get(list_links[index], function (data) {
-                    var imgTagsRegex = /<img.+?src=\"(.*?)\".+?>/ig;
-                    console.log(imgTagsRegex.exec(data));
+                    // var imgTagsRegex = /<img.+?src=\"(.*?)\".+?>/ig;
+                    // var matched = imgTagsRegex.exec(data);
+                    // if ( matched != null) {
+                    //      console.log(matched[0]);
+                    //      console.log(featured_parts[index]);
+                    // }
                 });
             });
         }

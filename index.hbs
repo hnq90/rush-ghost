@@ -1,11 +1,8 @@
-{{!< default}}
+{{!< default }}
 
-{{! The comment above "< default" means - insert everything in this file into
-    the {body} of the default.hbs template, which contains our header/footer. }}
-{{! The main content area on the homepage }}
+{{! List all posts }}
 <main class="content" role="main">
 
-    {{! Each post will be output using this markup }}
     {{#foreach posts}}
     
     <article class="{{post_class}} {{#if @first}}first-article{{/if}}">
@@ -31,7 +28,7 @@
 
     {{/foreach}}
 
-    {{!! After all the posts, we have the previous/next pagination links }}
+    {{!! Pagination }}
     {{pagination}}
 
 </main>

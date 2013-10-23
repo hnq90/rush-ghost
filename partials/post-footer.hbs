@@ -1,9 +1,16 @@
 <footer class="post-footer">
 
     {{#if author}}
-        <section class="author">
-            <h4>{{author.name}}</h4>
-            <p>{{author.bio}}</p>
+        <section class="author" style="background: url({{author.cover}})">
+            <div class="author-info">
+                <div class="author-image" style="background: url({{author.image}})">
+                    <a href="#" class=""></a>
+                </div>
+                <div class="author-intro">
+                    <h4>{{author.name}}</h4>
+                    <p>{{author.bio}}</p>
+                </div>
+            </div>
         </section>
     {{/if}}
 
@@ -24,9 +31,11 @@
     </section>
 
 </footer>
+
 {{! Disqus }}    
 <div id="disqus_thread"></div>
 <script type="text/javascript">
+    //Change 'huynqsblog' to your disqus account
     var disqus_shortname = 'huynqsblog';
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
