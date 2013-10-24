@@ -63,7 +63,7 @@
         // rain, cloudy, sunny, cold
         var metaNodes = $(".post-meta"),
             weatherNodes = $(".post-weather"),
-            weather_hash = {"rain": "wi-rain", "cloudy": "wi-cloudy", "sunny": "wi-day-sunny", "cold": "wi-strong-wind"},
+            weather_hash = {"rain": "wi-rain", "cloudy": "wi-cloudy", "sunny": "wi-day-sunny", "cold": "wi-snow"},
             weather_arr = [],
             /* -- Add mood -- */
             // happy, sad, okay
