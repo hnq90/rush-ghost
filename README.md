@@ -6,7 +6,7 @@ Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
 
 ## Screenshot
 
-![x](http://i.imgur.com/fF5wCDU.jpg)
+![Imgur](http://i.imgur.com/OAguN0K.png)
 
 ====
 
