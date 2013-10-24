@@ -431,6 +431,7 @@ ul.nav li a:hover {
     background-size : cover;
     color : #fff;
     text-align : center;
+    max-height: 480px;
 }
 .funny-avatar-circle {
     position : absolute;
