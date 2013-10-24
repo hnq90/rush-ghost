@@ -13,7 +13,7 @@
 
         </header>
         <section class="featured">
-            {{content words="0"}}
+            {{!Auto get video or image}}
         </section>
         
         <section class="post-excerpt">
@@ -27,7 +27,9 @@
     </article>
 
     {{/foreach}}
-
+    <div class="endless" style="text-align: center; display: none;">
+        <img alt="Loading..." src="/assets/imgs/preloader.gif">
+    </div>
     {{!! Pagination }}
     {{pagination}}
 
