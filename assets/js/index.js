@@ -197,10 +197,7 @@
             /* -- Scroll to Top -- */
             if ($(this).scrollTop() > 100) {
                 //Display it
-                $(".scrollup").fadeIn(function () {
-                    //Hide after 10s
-                    //setTimeout( "$('.scrollup').fadeOut();", 10000 );
-                });
+                $(".scrollup").fadeIn();
             } else {
                 $(".scrollup").fadeOut();
             }
@@ -224,9 +221,7 @@
 
                                 $(".endless").remove();
                                 posts.each(function (index) {
-                                    $(posts[index]).css("display", "none");
-                                    $(".content").append(posts[index]);
-                                    $(posts[index]).fadeIn(200);
+                                    $(posts[index]).appendTo(".content").addClass("animated fadeInUp");
                                 });
 
                                 //Callback when create new article
@@ -240,10 +235,17 @@
                             }
                         }
                     });
+                } else {
+                    if ($(".pagination").css("display") === "block") {
+                        $(".no-more").removeClass("animated shake");
+                        $(".no-more").addClass("animated shake");
+                    }
                 }
             } else {
                 $(".pagination").css("display", "block");
                 $(".pagination").html("<span class=\"button no-more\">''-_-</span>");
+                $(".no-more").removeClass("animated shake");
+                $(".no-more").addClass("animated shake");
             }
         });
 
