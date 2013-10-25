@@ -8,10 +8,13 @@
 
         /* -- Feature Images and Video per Post -- */
         if (articles_links.length > 0) {
+            localStorage.clear();
             articles_links.each(function (index) {
                 //Process script                 
-                list_links.push(articles_links[index].href);
-                //localStorage.setItem(articles_links[index].href, index);
+                list_links.push(articles_links[index].href);                
+                localStorage.setItem(articles_links[index].href,
+                    JSON.stringify({"prev":(articles_links[index-1] != null ? articles_links[index-1].href:"none"),
+                    "next":(articles_links[index+1] != null ? articles_links[index+1].href:"none")}));
             });
         }
 
@@ -146,6 +149,13 @@
         return browser;
     }
 
+    function prev_next() {
+        if (localStorage.getItem(window.location.href) != null && window.location.href != (window.location.origin+"/")) {
+            var relations = localStorage.getItem(window.location.href);
+            return JSON.parse(relations);
+        }
+    }
+
     $(document).ready(function () {
 
         /* -- Detect IE -- */
@@ -258,6 +268,20 @@
 
         get_feature_image();
         add_weather_emo();
+        
+        var rel_links = prev_next();
+        if (rel_links != null) {
+            $(document).keydown(function (event) {
+                if (event.which == 37 && rel_links.prev != "none") {
+                    event.preventDefault();
+                    window.location.href = rel_links.prev;
+                }
+                if (event.which == 39 && rel_links.next != "none") {
+                    event.preventDefault();
+                    window.location.href = rel_links.next;
+                }
+            });
+        }
     });
 
 }(jQuery));

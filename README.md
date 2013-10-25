@@ -19,6 +19,7 @@ Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
 + Infinite Scrolling
 + Auto get first image or video at index
 + Fix some bugs
++ Next Post and Prev Post keyboard shortcut (Left and Right)
 
 ====
 
