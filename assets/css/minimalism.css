@@ -759,6 +759,17 @@ ul.nav li a:hover {
     opacity: 0.8;
     padding: 5px;
 }
+.no-more {
+    background-color: #2C3E50;
+    color: #ECF0F1;
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    text-decoration: none;
+}
 
 /*
  * For screen smaller than 900px 

@@ -1,10 +1,11 @@
 (function ($) {
     "use strict";
     $(document).ready(function () {
+
         /* -- Detect IE -- */
-        var browser = detect_browser();
-        if (browser.msie == true) {
-            var logo_text = $("#flash").text() + " " + $("#light").text();
+        var browser = detect_browser(),
+            logo_text = $("#flash").text() + " " + $("#light").text();
+        if (browser.msie === true) {
             $("#box").html(logo_text);
         }
 
@@ -62,52 +63,60 @@
             var next_page = $(".pagination a.older-posts");
             if (next_page.length > 0) {
                 next_page = next_page.attr("href");
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                    $('.endless').show();
+                if ($(window).scrollTop() === ($(document).height() - $(window).height())) {
+                    $(".endless").show();
                     $.ajax({
                         url: next_page,
                         success: function (html) {
                             if (html) {
                                 var dom = $(html),
                                     posts = dom.find("article"),
-                                    pagination = dom.find(".pagination");
+                                    pagination = dom.find(".pagination"),
+                                    endless = dom.find(".endless");
 
                                 $(".pagination").remove();
+
+                                $(".endless").remove();
                                 posts.each(function (index) {
+                                    $(posts[index]).css("display", "none");
                                     $(".content").append(posts[index]);
+                                    $(posts[index]).fadeIn(200);
                                 });
 
-                                GetFeatureImage();
-                                AddWeathernEmo();
+                                //Callback when create new article
+                                get_feature_image();
+                                add_weather_emo();
 
+                                $(".content").append(endless);
                                 $(".content").append(pagination);
                                 $(".pagination").css("display", "none");
-                                $('.endless').hide();
+                                $(".endless").hide();
                             }
                         }
                     });
                 }
             } else {
                 $(".pagination").css("display", "block");
-                $(".pagination").html("No more post -_-");
+                $(".pagination").html("<span class=\"button no-more\">''-_-</span>");
             }
         });
 
-        $(".scrollup").click(function () {
+        $(".scrollup,.no-more").click(function () {
             $("html, body").animate({
                 scrollTop: 0
             }, 1000);
             return false;
         });
 
-        GetFeatureImage();
-        AddWeathernEmo();
+        get_feature_image();
+        add_weather_emo();
     });
 
-    function GetFeatureImage() {
+    function get_feature_image() {
         var articles_links = $(".post-title a"),
             featured_parts = $(".featured"),
             list_links = [];
+
         /* -- Feature Images and Video per Post -- */
         if (articles_links.length > 0) {
             articles_links.each(function (index) {
@@ -125,7 +134,7 @@
                         img = article.find("img:first"),
                         video = article.find("iframe:first"),
                         featured = featured_parts[index];
-                    
+
                     if (img.length > 0 && video.length > 0) {
                         $(featured).html(img[0]);
                     } else {
@@ -141,8 +150,7 @@
         }
     }
 
-    function AddWeathernEmo() {
-        /* -- Add weather -- */
+    function add_weather_emo() {
         // rain, cloudy, sunny, cold
         var metaNodes = $(".post-meta"),
             weatherNodes = $(".post-weather"),
@@ -153,7 +161,6 @@
                 "cold": "wi-snow"
             },
             weather_arr = [],
-            /* -- Add mood -- */
             // happy, sad, okay
             emoNodes = $(".post-emoticon"),
             emo_hash = {
@@ -163,6 +170,7 @@
             },
             emo_arr = [];
 
+        /* -- Add weather -- */
         metaNodes.each(function (index) {
             var matched_weather = $(this).text().match("rain|cloudy|sunny|cold");
             weather_arr.push((matched_weather === null ? "sunny" : matched_weather).toString());
@@ -174,6 +182,7 @@
             }
         });
 
+        /* -- Add mood -- */
         metaNodes.each(function (index) {
             var matched_mood = $(this).text().match("happy|sad|okay");
             emo_arr.push((matched_mood === null ? "okay" : matched_mood).toString());
@@ -188,7 +197,7 @@
 
     //Function check menu opened
 
-    function MoveScrollIcon() {
+    function move_scroll_icon() {
         if (menu_open()) {
             $(".scrollup").removeClass("scroll-right");
             $(".scrollup").addClass("scroll-left");
@@ -197,6 +206,7 @@
             $(".scrollup").addClass("scroll-right");
         }
     }
+
     //Function generate background
 
     function getbg() {
@@ -231,8 +241,9 @@
             opera: false,
             msie: false,
             safari: false
-        };
-        var sBrowser, sUsrAg = navigator.userAgent;
+        },
+            sBrowser, sUsrAg = navigator.userAgent;
+
         if (sUsrAg.indexOf("Chrome") > -1) {
             browser.chrome = true;
         } else if (sUsrAg.indexOf("Safari") > -1) {
