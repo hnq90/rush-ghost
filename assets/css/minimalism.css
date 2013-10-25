@@ -786,6 +786,7 @@ ul.nav li a:hover {
         min-height : 240px;
         height : auto;
         text-align : center;
+        margin-bottom : 6em;
     }
     .blog-title {
         letter-spacing : -1px;
@@ -850,6 +851,7 @@ ul.nav li a:hover {
         position : relative;
         padding : 10% 0;
         text-align : center;
+        margin-bottom : 5em;
     }
     .blog-title {
         font-size : 3rem;
