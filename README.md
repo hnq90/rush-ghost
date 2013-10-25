@@ -2,13 +2,13 @@
 
 Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
 
-====
+---
 
 ## Screenshot
 
 ![Imgur](http://i.imgur.com/OAguN0K.png)
 
-====
+---
 
 ## Changelog
 
@@ -21,7 +21,7 @@ Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
 + Fix some bugs
 + Next Post and Prev Post keyboard shortcut (Left and Right)
 
-====
+---
 
 ## Copyright & License
 
