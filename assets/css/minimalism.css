@@ -268,6 +268,12 @@ input.button, button.button {
     color : #A1A1AC;
     font-family : 'Noto Sans', sans-serif;
 }
+#menu h2 {
+    margin: 15px 0 10px 0;
+}
+#menu ul, #menu ol {
+    margin: 1.2em 0 !important;
+}
 #menu form {
     margin : 0 auto 20px auto;
 }
@@ -768,6 +774,35 @@ ul.nav li a:hover {
     vertical-align: middle;
     font-size: 20px;
     text-decoration: none;
+}
+
+input[type=checkbox].css-checkbox { 
+    position: absolute;  
+    overflow: hidden;  
+    clip: rect(0 0 0 0);  
+    height:1px;  
+    width:1px;  
+    margin:-1px;  
+    padding:0; border:0; 
+} 
+
+input[type=checkbox].css-checkbox + label.css-label { 
+    padding-left:20px; 
+    height:17px;  
+    display:inline-block; 
+    line-height:17px; 
+    background-repeat:no-repeat; 
+    background-position: 0 0; 
+    font-size:15px; 
+    vertical-align:middle; 
+    cursor:pointer; 
+}  
+
+input[type=checkbox].css-checkbox:checked + label.css-label { 
+    background-position: 0 -17px; 
+}  
+.css-label{ 
+    background-image:url(/assets/imgs/elegant.png); 
 }
 
 /*
