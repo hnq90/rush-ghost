@@ -203,8 +203,6 @@
         /* -- Change Background -- */
         $("body").css("background", "url(\"/assets/imgs/bg/" + getbg() + "\")");
 
-        $(".pagination").css("display", "none");
-
         $(window).scroll(function () {
             /* -- Scroll to Top -- */
             if ($(this).scrollTop() > 100) {
@@ -216,6 +214,7 @@
 
             /* -- Endless Scrolling -- */
             var next_page = $(".pagination a.older-posts");
+            $(".pagination").css("display", (next_page.length === 0 ? "none":"block"));
             if (next_page.length > 0) {
                 next_page = next_page.attr("href");
                 if ($(window).scrollTop() === ($(document).height() - $(window).height())) {
