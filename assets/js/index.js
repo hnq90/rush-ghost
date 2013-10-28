@@ -8,13 +8,20 @@
 
         /* -- Feature Images and Video per Post -- */
         if (articles_links.length > 0) {
-            localStorage.clear();
+            
+            if ( Modernizr.localstorage ) {
+                localStorage.clear();
+            }
+            
             articles_links.each(function (index) {
                 //Process script                 
                 list_links.push(articles_links[index].href);
+                /* -- Next and Prev Post -- */
+                if ( Modernizr.localstorage ) {
                 localStorage.setItem(articles_links[index].href,
-                    JSON.stringify({"prev": (articles_links[index - 1] !== null ? articles_links[index - 1].href : "none"),
-                                    "next": (articles_links[index + 1] !== null ? articles_links[index + 1].href : "none")}));
+                    JSON.stringify({"prev": (articles_links[index - 1] != null ? articles_links[index - 1].href : "none"),
+                                    "next": (articles_links[index + 1] != null ? articles_links[index + 1].href : "none")}));
+                }
             });
         }
 
@@ -65,7 +72,7 @@
         /* -- Add weather -- */
         metaNodes.each(function (index) {
             var matched_weather = $(this).text().match("rain|cloudy|sunny|cold");
-            weather_arr.push((matched_weather === null ? "sunny" : matched_weather).toString());
+            weather_arr.push((matched_weather == null ? "sunny" : matched_weather).toString());
         });
 
         weatherNodes.each(function (index) {
@@ -77,7 +84,7 @@
         /* -- Add mood -- */
         metaNodes.each(function (index) {
             var matched_mood = $(this).text().match("happy|sad|okay");
-            emo_arr.push((matched_mood === null ? "okay" : matched_mood).toString());
+            emo_arr.push((matched_mood == null ? "okay" : matched_mood).toString());
         });
 
         emoNodes.each(function (index) {
@@ -122,7 +129,7 @@
     }
 
     function menu_open() {
-        return ($("#menu").css("right") === "0px");
+        return ($("#menu").css("right") == "0px");
     }
 
     function detect_browser() {
@@ -150,23 +157,33 @@
     }
 
     function prev_next() {
-        if (localStorage.getItem(window.location.href) !== null && window.location.href !== (window.location.origin + "/")) {
-            var relations = localStorage.getItem(window.location.href);
-            return JSON.parse(relations);
+        if ( Modernizr.localstorage ) {
+            if (localStorage.getItem(window.location.href) != null && window.location.href != (window.location.origin + "/")) {
+                var relations = localStorage.getItem(window.location.href);
+                return JSON.parse(relations);
+            }
+        } else {
+            return false;
         }
     }
+        
 
     $(document).ready(function () {
-
+        
         /* -- Detect IE -- */
         var browser = detect_browser(),
             logo_text = $("#flash").text() + " " + $("#light").text(),
+            is_many_page = $(".pagination a.older-posts").length,
             rel_links = prev_next();
         
-        if (browser.msie === true) {
+        /* -- Fallback text logo for IE -- */
+        if (browser.msie == true) {
             $("#box").html(logo_text);
         }
-
+        
+        /* -- Hide pagination for infinite scrolling  -- */
+        $(".pagination").css("display", is_many_page == 0 ? "none":"block" );
+        
         /* -- Code Highlight -- */
         $("pre").addClass("prettyprint");
 
@@ -191,7 +208,7 @@
         });
 
         $(document).click(function (event) {
-            if ($(event.target).parents().index($("#menu")) === -1) {
+            if ($(event.target).parents().index($("#menu")) == -1) {
                 if (menu_open()) {
                     $("#menu").css("right", "-280px");
                     $(".scrollup").removeClass("scroll-left");
@@ -202,7 +219,8 @@
 
         /* -- Change Background -- */
         $("body").css("background", "url(\"/assets/imgs/bg/" + getbg() + "\")");
-
+        $(".pagination").css("display", "none");
+        
         $(window).scroll(function () {
             /* -- Scroll to Top -- */
             if ($(this).scrollTop() > 100) {
@@ -214,10 +232,9 @@
 
             /* -- Endless Scrolling -- */
             var next_page = $(".pagination a.older-posts");
-            $(".pagination").css("display", (next_page.length === 0 ? "none":"block"));
             if (next_page.length > 0) {
                 next_page = next_page.attr("href");
-                if ($(window).scrollTop() === ($(document).height() - $(window).height())) {
+                if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
                     $(".endless").show();
                     $.ajax({
                         url: next_page,
@@ -247,7 +264,7 @@
                         }
                     });
                 } else {
-                    if ($(".pagination").css("display") === "block") {
+                    if ($(".pagination").css("display") == "block") {
                         $(".no-more").removeClass("animated shake");
                         $(".no-more").addClass("animated shake");
                     }
@@ -269,15 +286,14 @@
 
         get_feature_image();
         add_weather_emo();
-        
-        
-        if (rel_links !== null) {
+                    
+        if (rel_links != null && Modernizr.localstorage && rel_links != false) {
             $(document).keydown(function (event) {
-                if (event.which === 37 && rel_links.prev !== "none") {
+                if (event.which == 37 && rel_links.prev != "none") {
                     event.preventDefault();
                     window.location.href = rel_links.prev;
                 }
-                if (event.which === 39 && rel_links.next !== "none") {
+                if (event.which == 39 && rel_links.next != "none") {
                     event.preventDefault();
                     window.location.href = rel_links.next;
                 }
