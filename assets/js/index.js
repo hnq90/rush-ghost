@@ -199,9 +199,9 @@
         }
         
         /* -- Hide pagination for infinite scrolling  -- */        
-        if (is_infinite)
+        if (is_infinite || is_many_page == 0)
         {
-            $(".pagination").css("display", is_many_page == 0 ? "none":"block" );
+            $(".pagination").css("display", "none" );
         } else {
             $(".pagination").css("display", "block");
         }
