@@ -9,9 +9,9 @@
         /* -- Feature Images and Video per Post -- */
         if (articles_links.length > 0) {
             
-            if ( Modernizr.localstorage ) {
-                localStorage.clear();
-            }
+//            if ( Modernizr.localstorage ) {
+//                localStorage.clear();
+//            }
             
             articles_links.each(function (index) {
                 //Process script                 
@@ -166,6 +166,22 @@
             return false;
         }
     }
+    
+    function enable_infinite() {
+        if ( Modernizr.localstorage ) {
+            if (localStorage.getItem("enable_infinite_scrolling") == null) {
+                localStorage.setItem("enable_infinite_scrolling", "true");
+                return true;
+            } else if (localStorage.getItem("enable_infinite_scrolling") == "true") {
+                return true;
+            } else if (localStorage.getItem("enable_infinite_scrolling") == "false") {
+                $("#infinite_enable").removeProp("checked");
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
         
 
     $(document).ready(function () {
@@ -174,6 +190,7 @@
         var browser = detect_browser(),
             logo_text = $("#flash").text() + " " + $("#light").text(),
             is_many_page = $(".pagination a.older-posts").length,
+            is_infinite = enable_infinite(),
             rel_links = prev_next();
         
         /* -- Fallback text logo for IE -- */
@@ -181,8 +198,19 @@
             $("#box").html(logo_text);
         }
         
-        /* -- Hide pagination for infinite scrolling  -- */
-        $(".pagination").css("display", is_many_page == 0 ? "none":"block" );
+        /* -- Hide pagination for infinite scrolling  -- */        
+        if (is_infinite)
+        {
+            $(".pagination").css("display", is_many_page == 0 ? "none":"block" );
+        } else {
+            $(".pagination").css("display", "block");
+        }
+        
+        /* -- Catch checkbox event -- */
+        $("input#infinite_enable").change( function() {
+            localStorage.setItem("enable_infinite_scrolling", $(this).is(":checked"));
+            location.reload();
+        });
         
         /* -- Code Highlight -- */
         $("pre").addClass("prettyprint");
@@ -219,8 +247,14 @@
 
         /* -- Change Background -- */
         $("body").css("background", "url(\"/assets/imgs/bg/" + getbg() + "\")");
-        $(".pagination").css("display", "none");
-        
+//        
+//        if (Modernizr.localstorage)
+//        {
+//            $(".pagination").css("display", "none");
+//        } else {
+//            //Using jQuery Cookie
+//        }
+//        
         $(window).scroll(function () {
             /* -- Scroll to Top -- */
             if ($(this).scrollTop() > 100) {
@@ -229,51 +263,53 @@
             } else {
                 $(".scrollup").fadeOut();
             }
-
-            /* -- Endless Scrolling -- */
-            var next_page = $(".pagination a.older-posts");
-            if (next_page.length > 0) {
-                next_page = next_page.attr("href");
-                if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
-                    $(".endless").show();
-                    $.ajax({
-                        url: next_page,
-                        success: function (html) {
-                            if (html) {
-                                var dom = $(html),
-                                    posts = dom.find("article"),
-                                    pagination = dom.find(".pagination"),
-                                    endless = dom.find(".endless");
-
-                                $(".pagination").remove();
-
-                                $(".endless").remove();
-                                posts.each(function (index) {
-                                    $(posts[index]).appendTo(".content").addClass("animated fadeInUp");
-                                });
-
-                                //Callback when create new article
-                                get_feature_image();
-                                add_weather_emo();
-
-                                $(".content").append(endless);
-                                $(".content").append(pagination);
-                                $(".pagination").css("display", "none");
-                                $(".endless").hide();
+            
+            if (localStorage.getItem("enable_infinite_scrolling") == "true") {
+                /* -- Endless Scrolling -- */
+                var next_page = $(".pagination a.older-posts");
+                if (next_page.length > 0) {
+                    next_page = next_page.attr("href");
+                    if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
+                        $(".endless").show();
+                        $.ajax({
+                            url: next_page,
+                            success: function (html) {
+                                if (html) {
+                                    var dom = $(html),
+                                        posts = dom.find("article"),
+                                        pagination = dom.find(".pagination"),
+                                        endless = dom.find(".endless");
+    
+                                    $(".pagination").remove();
+    
+                                    $(".endless").remove();
+                                    posts.each(function (index) {
+                                        $(posts[index]).appendTo(".content").addClass("animated fadeInUp");
+                                    });
+    
+                                    //Callback when create new article
+                                    get_feature_image();
+                                    add_weather_emo();
+    
+                                    $(".content").append(endless);
+                                    $(".content").append(pagination);
+                                    $(".pagination").css("display", "none");
+                                    $(".endless").hide();
+                                }
                             }
+                        });
+                    } else {
+                        if ($(".pagination").css("display") == "block") {
+                            $(".no-more").removeClass("animated shake");
+                            $(".no-more").addClass("animated shake");
                         }
-                    });
-                } else {
-                    if ($(".pagination").css("display") == "block") {
-                        $(".no-more").removeClass("animated shake");
-                        $(".no-more").addClass("animated shake");
                     }
+                } else {
+                    $(".pagination").css("display", "block");
+                    $(".pagination").html("<span class=\"button no-more\">''-_-</span>");
+                    $(".no-more").removeClass("animated shake");
+                    $(".no-more").addClass("animated shake");
                 }
-            } else {
-                $(".pagination").css("display", "block");
-                $(".pagination").html("<span class=\"button no-more\">''-_-</span>");
-                $(".no-more").removeClass("animated shake");
-                $(".no-more").addClass("animated shake");
             }
         });
 
