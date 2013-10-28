@@ -1,5 +1,4 @@
 @import url('normalize.css');
-@import url('http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700');
 html {
     max-height : 100%;
     height : 100%;
@@ -15,7 +14,7 @@ body {
     background : rgba(66, 33, 33, 0.95);
     color : #3A4145;
     font-size : 1.8rem;
-    font-family : 'PT Sans Narrow', sans-serif;
+    font-family : 'Noto Sans', sans-serif;
     line-height : 1.6em;
 }
 ::-moz-selection {
@@ -231,7 +230,7 @@ table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
     text-align : center;
     font-weight : bold;
     font-size : 13px;
-    font-family : Arial, "PT Sans Narrow", sans-serif;
+    font-family : Arial, "Noto Sans", sans-serif;
     line-height : 1.5384615384615385;
     cursor : pointer;
     transition : all 0.15s ease-in-out;
