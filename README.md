@@ -1,6 +1,6 @@
-# Minimalism v1.2
+# Minimalism v1.3
 
-Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
+Minimalism v1.3 - [Online Demo](http://minimalism.hnq.me)
 
 ---
 
@@ -20,6 +20,11 @@ Minimalism v1.2 - [Online Demo](http://minimalism.hnq.me)
 + Auto get first image or video at index
 + Fix some bugs
 + Next Post and Prev Post keyboard shortcut (Left and Right)
+
+**Minimalism v1.3 - 05/11/2013**
+
++ Using Modernizr to check browser support HTML5 and CSS3 features
++ Fix bugs
 
 ---
 
