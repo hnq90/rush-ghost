@@ -22,7 +22,6 @@ Minimalism v1.3 - [Online Demo](http://minimalism.hnq.me)
 + Next Post and Prev Post keyboard shortcut (Left and Right)
 
 **Minimalism v1.3 - 05/11/2013**
-
 + Using Modernizr to check browser support HTML5 and CSS3 features
 + Fix bugs
 
