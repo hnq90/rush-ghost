@@ -1,0 +1,12 @@
+<header id="site-head"  {{#if @blog.cover}}style="background-image: url({{@blog.cover}})" {{else}}style="background-image: url('http://i.imgur.com/uPv4dIm.jpg')" {{/if}}>
+    <div class="vertical">
+        {{! Header }}
+        <div id="box">
+            <p><span>{{@blog.title}}</span></p>
+        </div>
+        <div id="blog-logo" class="slogan">
+            <h2 class="blog-description transparent">{{@blog.description}}</h2>
+            {{#if @blog.logo}}<a href="{{@blog.url}}" class="funny-avatar-circle" style="background-image: url({{@blog.logo}})"></a>{{/if}}
+        </div>
+    </div>
+</header>

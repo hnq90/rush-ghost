@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{asset "imgs/favicon.ico"}}" />
+    
+    {{! Custom CSS }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/rush.min.css"}}" />
+    <link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{asset "font-awesome/css/font-awesome.min.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/weather-icons.min.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/animate-custom.min.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/vibrant-ink.min.css"}}" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="{{asset "font-awesome/css/font-awesome-ie7.min.css"}}" />
+    <![endif]-->
+    {{! Ghost head hook }}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+    
+    {{! Slide Menu }}
+    {{> menu }}
+    
+    {{! Header with big picture and avatar }}
+    {{> header }}
+        
+    {{{body}}}
+
+    {{> footer }}
+
+    {{! Ghost footer hook }}
+    {{ghost_foot}}
+
+    {{! Add Javascript here for the best performance }}
+    {{> customjs }}
+</body>
+</html>
