@@ -311,7 +311,7 @@ input.button, button.button {
 #menu form {
     margin : 0 auto 20px auto;
 }
-#menu input[type="email"] {
+#menu input[type="email"], #menu input[type="search"] {
     margin : 10px auto;
     width : 95%;
     font-size : 1.5rem;
@@ -847,6 +847,34 @@ iframe, .fluid-width-video-wrapper {
 .fluid-width-video-wrapper iframe {
     margin: 0;
 }
+
+.search-results{
+    text-align: center;
+}
+
+.search-result{
+    margin-bottom: 20px;
+}
+
+.search-result h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.search-results h3 {
+    padding-top: 50px;
+    color: #99CCFF;
+    font-size: 2rem;
+    /*text-transform: uppercase;*/
+    font-weight: 500;
+}
+
+.search-result time {
+    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
+}
+
 .flappybird {
     background:url('/assets/imgs/flappy-bird.gif') no-repeat;
     background-position: 0 0;

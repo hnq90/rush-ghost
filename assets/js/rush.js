@@ -200,7 +200,7 @@
         //     localStorage.setItem("enable_infinite_scrolling", $(this).is(":checked"));
         //     location.reload();
         // });
-        
+        $('.search-results').Tapirus('52ff57fb40bf180100000019'); 
         /* -- Code Highlight -- */
         $("pre").addClass("prettyprint");
 
