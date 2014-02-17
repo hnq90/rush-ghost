@@ -1,48 +1,48 @@
 (function ($) {
     "use strict";
 
-    function get_feature_image() {
-        var articles_links = $(".post-title a"),
-            featured_parts = $(".js-featured"),
-            list_links = [];
-
-        /* -- Feature Images and Video per Post -- */
-        if (articles_links.length > 0) {
-            articles_links.each(function (index) {
-                //Process script                 
-                list_links.push(articles_links[index].href);
-                /* -- Next and Prev Post -- */
-                // if ( Modernizr.localstorage ) {
-                // localStorage.setItem(articles_links[index].href,
-                //     JSON.stringify({"prev": (articles_links[index - 1] != null ? articles_links[index - 1].href : "none"),
-                //                     "next": (articles_links[index + 1] != null ? articles_links[index + 1].href : "none")}));
-                // }
-            });
-        }
-
-        if (list_links.length > 0) {
-            list_links.forEach(function (element, index, array) {
-                $.get(list_links[index], function (data) {
-                    var html = $(data),
-                        article = html.find("article"),
-                        img = article.find("img:first"),
-                        video = article.find("iframe:first"),
-                        featured = featured_parts[index];
-
-                    if (img.length > 0 && video.length > 0) {
-                        $(featured).html(img[0]);
-                    } else {
-                        if (img.length > 0) {
-                            $(featured).html(img[0]);
-                        } else if (video.length > 0) {
-                            $(featured).html(video[0].outerHTML);
-                        }
-                    }
-                    $(".post").fitVids();
-                });
-            });
-        }
-    }
+//    function get_feature_image() {
+//        var articles_links = $(".post-title a"),
+//            featured_parts = $(".js-featured"),
+//            list_links = [];
+//
+//        /* -- Feature Images and Video per Post -- */
+//        if (articles_links.length > 0) {
+//            articles_links.each(function (index) {
+//                //Process script                 
+//                list_links.push(articles_links[index].href);
+//                /* -- Next and Prev Post -- */
+//                // if ( Modernizr.localstorage ) {
+//                // localStorage.setItem(articles_links[index].href,
+//                //     JSON.stringify({"prev": (articles_links[index - 1] != null ? articles_links[index - 1].href : "none"),
+//                //                     "next": (articles_links[index + 1] != null ? articles_links[index + 1].href : "none")}));
+//                // }
+//            });
+//        }
+//
+//        if (list_links.length > 0) {
+//            list_links.forEach(function (element, index, array) {
+//                $.get(list_links[index], function (data) {
+//                    var html = $(data),
+//                        article = html.find("article"),
+//                        img = article.find("img:first"),
+//                        video = article.find("iframe:first"),
+//                        featured = featured_parts[index];
+//
+//                    if (img.length > 0 && video.length > 0) {
+//                        $(featured).html(img[0]);
+//                    } else {
+//                        if (img.length > 0) {
+//                            $(featured).html(img[0]);
+//                        } else if (video.length > 0) {
+//                            $(featured).html(video[0].outerHTML);
+//                        }
+//                    }
+//                    $(".post").fitVids();
+//                });
+//            });
+//        }
+//    }
 
     function add_weather_emo() {
         // rain, cloudy, sunny, cold
@@ -175,6 +175,10 @@
 
     $(document).ready(function () {
 		NProgress.start();
+//		var in_post_view = $(".post-content").text() != "" ? true:false;
+//		if (in_post_view == true) {
+//			$(".post-content").find("img:first").hide()	
+//		}
         /* -- Detect IE -- */
         //var browser = detect_browser();
         //logo_text = $("#flash").text() + " " + $("#light").text(),
@@ -316,7 +320,7 @@
             return false;
         });
 
-        get_feature_image();
+        //get_feature_image();
         add_weather_emo();
 
         //        if (rel_links != null && Modernizr.localstorage && rel_links != false) {

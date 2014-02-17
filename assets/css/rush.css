@@ -625,6 +625,9 @@ ul.nav li a:hover {
     max-width : 90%;
     height : auto;
 }
+.post-content img.featured-img {
+	display: none !important;
+}
 .post-content img {
     display : block;
     margin : 0 auto;
