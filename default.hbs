@@ -14,12 +14,11 @@
 	
     {{! Custom CSS }}
     <link rel="stylesheet" href="{{asset "css/normalize.min.css"}}" />
-	<link rel="stylesheet" href="{{asset "css/nprogress.min.css"}}" />
+<!--	<link rel="stylesheet" href="{{asset "css/nprogress.min.css"}}" />-->
     <link rel="stylesheet" type="text/css" href="{{asset "css/rush.min.css"}}" />
     <link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{asset "font-awesome/css/font-awesome.min.css"}}" />
     <link rel="stylesheet" href="{{asset "css/weather-icons.min.css"}}" />
-<!--    <link rel="stylesheet" href="{{asset "css/animate-custom.min.css"}}" />-->
     <link rel="stylesheet" href="{{asset "css/vibrant-ink.min.css"}}" />
     <!--[if IE 7]>
     <link rel="stylesheet" href="{{asset "font-awesome/css/font-awesome-ie7.min.css"}}" />
@@ -36,10 +35,9 @@
     {{! Header with big picture and avatar }}
     {{> header }}
 
-    <!--
-    <div class="flappybird"></div>
-    -->
+    {{! Search results }}
     <section class="search-results"></section>
+
     {{{body}}}
 	
     {{> footer }}

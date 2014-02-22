@@ -174,7 +174,7 @@
 
 
     $(document).ready(function () {
-		NProgress.start();
+/		NProgress.start();
 //		var in_post_view = $(".post-content").text() != "" ? true:false;
 //		if (in_post_view == true) {
 //			$(".post-content").find("img:first").hide()	
@@ -339,6 +339,6 @@
 
 }(jQuery));
 
-$(window).load(function() {
-	NProgress.done();
-});
+//$(window).load(function() {
+//	NProgress.done();
+//});
