@@ -216,10 +216,10 @@
         $("pre").addClass("prettyprint");
 
         /* -- Responsive Text and Video -- */
-        $("#box").fitText(1.2, {
-            minFontSize: "40px",
-            maxFontSize: "90px"
-        });
+        // $("#box").fitText(1.2, {
+        //     minFontSize: "40px",
+        //     maxFontSize: "90px"
+        // });
         $(".post").fitVids();
 
         /* -- Handle menu event -- */
