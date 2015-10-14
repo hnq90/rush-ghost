@@ -220,7 +220,7 @@
         //     minFontSize: "40px",
         //     maxFontSize: "90px"
         // });
-        $(".post").fitVids();
+        // $(".post").fitVids();
 
         /* -- Handle menu event -- */
         $(".toggle-icon").click(function () {
