@@ -1,0 +1,17 @@
+{
+  "name": "rush-ghost",
+  "version": "1.4",
+  "homepage": "https://github.com/hnq90/rush-ghost",
+  "authors": [
+    "HuyNQ <huy@huynq.net>"
+  ],
+  "description": "Ghost Theme",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
