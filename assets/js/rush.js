@@ -174,7 +174,7 @@
 
 
     $(document).ready(function () {
-/		NProgress.start();
+//		NProgress.start();
 //		var in_post_view = $(".post-content").text() != "" ? true:false;
 //		if (in_post_view == true) {
 //			$(".post-content").find("img:first").hide()
@@ -205,13 +205,13 @@
         //     location.reload();
         // });
         //$('.search-results').Tapirus('52ff57fb40bf180100000019');
-        $(".search-box").ghostHunter({
-            results: ".search-results",
-            onKeyUp: true,
-            info_template: "<h3 class='search-results-count'>{{amount}} results</h3>",
-            result_template: "<div class='search-result'><h2 class='post-title'><a href='{{link}}'>{{title}}</a></h2><time class='post-date' datetime='{{pubDate}}'>{{pubDate}}</div>",
-            zeroResultsInfo: false
-        });
+        // $(".search-box").ghostHunter({
+        //     results: ".search-results",
+        //     onKeyUp: true,
+        //     info_template: "<h3 class='search-results-count'>{{amount}} results</h3>",
+        //     result_template: "<div class='search-result'><h2 class='post-title'><a href='{{link}}'>{{title}}</a></h2><time class='post-date' datetime='{{pubDate}}'>{{pubDate}}</div>",
+        //     zeroResultsInfo: false
+        // });
         /* -- Code Highlight -- */
         $("pre").addClass("prettyprint");
 
