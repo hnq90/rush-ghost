@@ -2,34 +2,34 @@
 
 {{! List all posts }}
 <main class="content" role="main">
-    
+
     {{#foreach posts}}
-    
+
     <article class="{{post_class}} {{#if @first}}first-article{{/if}}">
         <header class="post-header">
             <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-            <span class="post-meta"><i class="icon-time oesam-icon"></i><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{{tags prefix="<i class=\"icon-tag oesam-icon\"></i>"}}} <i class="icon-comments oesam-icon"></i><a href='{{url}}#disqus_thread'>comments</a>
+            <span class="post-meta"><i class="icon-time oesam-icon"></i><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{{tags prefix="<i class=\"icon-tag oesam-icon\"></i>"}}}
             </span>
         </header>
-        
+
         <section class="js-featured">
             {{!Auto get video or image}}
 			{{content words="0"}}
         </section>
-        
+
         <section class="post-excerpt">
             <p>{{excerpt characters="200"}}&hellip;</p>
         </section>
-        
+
         <div class="post-weather"></div>
         <div class="emoemo">
             <span class="post-emoticon"></span>
         </div>
         <a class="button readmore" href="{{url}}"><i class="icon-thumbs-up oesam-icon"></i>Read more</a>
     </article>
-    
+
     {{/foreach}}
-    
+
     {{!! Pagination }}
     {{pagination}}
 </main>
