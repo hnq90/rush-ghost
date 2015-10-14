@@ -836,33 +836,33 @@ ul.nav li a:hover {
     text-decoration: none;
 }
 
-input[type=checkbox].css-checkbox { 
-    position: absolute;  
-    overflow: hidden;  
-    clip: rect(0 0 0 0);  
-    height:1px;  
-    width:1px;  
-    margin:-1px;  
-    padding:0; border:0; 
-} 
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height:1px;
+    width:1px;
+    margin:-1px;
+    padding:0; border:0;
+}
 
-input[type=checkbox].css-checkbox + label.css-label { 
-    padding-left:20px; 
-    height:17px;  
-    display:inline-block; 
-    line-height:17px; 
-    background-repeat:no-repeat; 
-    background-position: 0 0; 
-    font-size:15px; 
-    vertical-align:middle; 
-    cursor:pointer; 
-}  
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:20px;
+    height:17px;
+    display:inline-block;
+    line-height:17px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:15px;
+    vertical-align:middle;
+    cursor:pointer;
+}
 
-input[type=checkbox].css-checkbox:checked + label.css-label { 
-    background-position: 0 -17px; 
-}  
-.css-label{ 
-    background-image:url(/assets/imgs/elegant.png); 
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -17px;
+}
+.css-label{
+    background-image:url(/assets/imgs/elegant.png);
 }
 
 iframe, .fluid-width-video-wrapper {
@@ -1006,8 +1006,22 @@ iframe, .fluid-width-video-wrapper {
         opacity:1;
     }
 }
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /*
- * For screen smaller than 900px 
+ * For screen smaller than 900px
  */
 
 @media only screen and (max-width:900px) {
@@ -1059,7 +1073,7 @@ iframe, .fluid-width-video-wrapper {
 }
 
 /*
- * For screen smaller than 500px 
+ * For screen smaller than 500px
  */
 @media only screen and (max-width:500px) {
     #menu, .scrollup, .post-weather, .emoemo {
