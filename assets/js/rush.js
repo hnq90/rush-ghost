@@ -9,10 +9,10 @@ $(document).ready(function() {
         var metaNodes = $('.post-meta'),
             weatherNodes = $('.post-weather'),
             weather_hash = {
-                rain: 'wi-rain',
-                cloudy: 'wi-cloudy',
-                sunny: 'wi-day-sunny',
-                cold: 'wi-snow'
+                rain: 'wi wi-rain-mix',
+                cloudy: 'wi wi-cloudy',
+                sunny: 'wi wi-day-sunny',
+                cold: 'wi wi-snow'
             },
             weather_arr = [],
             // happy, sad, okay
@@ -117,7 +117,7 @@ $(document).ready(function() {
     });
 
     /* -- Change Background -- */
-    $('body').css('background', 'url("/assets/imgs/bg/"' + getbg() + '")');
+    $('body').css('background', 'url("/assets/imgs/bg/' + getbg() + '")');
 
     $(window).on('scroll', function() {
         /* -- Scroll to Top -- */
