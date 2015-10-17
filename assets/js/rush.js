@@ -174,7 +174,7 @@
 
 
     $(document).ready(function () {
-//		NProgress.start();
+		  NProgress.start();
 //		var in_post_view = $(".post-content").text() != "" ? true:false;
 //		if (in_post_view == true) {
 //			$(".post-content").find("img:first").hide()
@@ -216,11 +216,11 @@
         $("pre").addClass("prettyprint");
 
         /* -- Responsive Text and Video -- */
-        // $("#box").fitText(1.2, {
-        //     minFontSize: "40px",
-        //     maxFontSize: "90px"
-        // });
-        // $(".post").fitVids();
+        $("#box").fitText(1.2, {
+            minFontSize: "40px",
+            maxFontSize: "90px"
+        });
+        $(".post").fitVids();
 
         /* -- Handle menu event -- */
         $(".toggle-icon").click(function () {
@@ -339,6 +339,6 @@
 
 }(jQuery));
 
-//$(window).load(function() {
-//	NProgress.done();
-//});
+$(window).load(function() {
+	NProgress.done();
+});
