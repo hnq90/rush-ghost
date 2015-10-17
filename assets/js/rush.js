@@ -174,7 +174,7 @@
 
 
     $(document).ready(function () {
-		  NProgress.start();
+		  //NProgress.start();
 //		var in_post_view = $(".post-content").text() != "" ? true:false;
 //		if (in_post_view == true) {
 //			$(".post-content").find("img:first").hide()
@@ -219,6 +219,10 @@
         $("#box").fitText(1.2, {
             minFontSize: "40px",
             maxFontSize: "90px"
+        });
+        $(".post-title").fitText(1.2, {
+            minFontSize: "20px",
+            maxFontSize: "40px"
         });
         $(".post").fitVids();
 
@@ -339,6 +343,6 @@
 
 }(jQuery));
 
-$(window).load(function() {
-	NProgress.done();
-});
+//$(window).load(function() {
+//	NProgress.done();
+//});
