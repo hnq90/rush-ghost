@@ -2,6 +2,30 @@
 
 {{! List all posts }}
 <main class="content" role="main">
+<div class='ji-tumblr-photos' style='margin: 0 auto;max-width: 650px;'>
+    <a id='ji-tumblr-url-sosexyz-1' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-1' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-2' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-2' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-3' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-3' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-4' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-4' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-5' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-5' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-6' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-6' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-7' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-7' src='' alt='' /></a><a id='ji-tumblr-url-sosexyz-8' href=''><img border='0' style='margin:0' id='ji-tumblr-photo-sosexyz-8' src='' alt='' /></a>
+</div>
+<script type='text/javascript' src='{{asset "js/tumblr_api.js"}}'></script>
+<script type='text/javascript'>
+  if (tumblr_api_read) {
+    document.getElementById('ji-tumblr-photo-sosexyz-1').setAttribute('src', tumblr_api_read.posts[0]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-1').setAttribute('href', tumblr_api_read.posts[0]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-2').setAttribute('src', tumblr_api_read.posts[1]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-2').setAttribute('href', tumblr_api_read.posts[1]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-3').setAttribute('src', tumblr_api_read.posts[2]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-3').setAttribute('href', tumblr_api_read.posts[2]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-4').setAttribute('src', tumblr_api_read.posts[3]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-4').setAttribute('href', tumblr_api_read.posts[3]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-5').setAttribute('src', tumblr_api_read.posts[4]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-5').setAttribute('href', tumblr_api_read.posts[4]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-6').setAttribute('src', tumblr_api_read.posts[5]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-6').setAttribute('href', tumblr_api_read.posts[5]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-7').setAttribute('src', tumblr_api_read.posts[6]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-7').setAttribute('href', tumblr_api_read.posts[6]['url-with-slug'].replace('http:', ''));
+    document.getElementById('ji-tumblr-photo-sosexyz-8').setAttribute('src', tumblr_api_read.posts[7]['photo-url-75'].replace('http:', ''));
+    document.getElementById('ji-tumblr-url-sosexyz-8').setAttribute('href', tumblr_api_read.posts[7]['url-with-slug'].replace('http:', ''));
+  }
+</script>
 
     {{#foreach posts}}
 
